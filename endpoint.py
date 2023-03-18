@@ -60,7 +60,7 @@ def chart():
     
     
         
-    return render_template('index.html', chart_data=chart_data,accuracy,precision,recall,f1)
+    return render_template('index.html', chart_data=chart_data,accuracy=accuracy,precision=precision,recall=recall,f1=f1)
 
 
 if __name__ == "__main__":
