@@ -52,7 +52,7 @@ def chart():
     data = pd.read_csv('data.csv')
     chart_data = data[['Date', 'High', 'Low']].values.tolist()
         
-    return render_template('dashboard.html', chart_data=chart_data)
+    return render_template('index.html', chart_data=chart_data)
 
 
 if __name__ == "__main__":
