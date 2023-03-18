@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify,render_template
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 import pandas as pd
 import os
 from sklearn.linear_model import LinearRegression
@@ -55,14 +55,13 @@ def chart():
     
     y_pred = model.predict(X_test_poly)
     
-    accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred)
-    recall = recall_score(y_test, y_pred)
-    f1 = f1_score(y_test, y_pred)
+    r2 = r2_score(y, y_pred)
+    mse = mean_squared_error(y, y_pred)
+    mae = mean_absolute_error(y, y_pred)
     
     
         
-    return render_template('index.html', chart_data=chart_data,accuracy=accuracy,precision=precision,recall=recall,f1=f1)
+    return render_template('index.html', chart_data=chart_data,r2=r2,mse=mse,mae=mae)
 
 
 if __name__ == "__main__":
