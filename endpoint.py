@@ -49,10 +49,18 @@ data = pd.read_csv("data.csv")
 
 @app.route('/')
 def chart():
-    data = pd.read_csv('data.csv')
     chart_data = data[['Date', 'High', 'Low']].values.tolist()
+    
+    y_pred = model.predict(data['Open','High', 'Low', 'Volume'])
+    
+    accuracy = accuracy_score(data['Close'], y_pred)
+    precision = precision_score(data['Close'], y_pred)
+    recall = recall_score(data['Close'], y_pred)
+    f1 = f1_score(data['Close'], y_pred)
+    
+    
         
-    return render_template('index.html', chart_data=chart_data)
+    return render_template('index.html', chart_data=chart_data,accuracy,precision,recall,f1)
 
 
 if __name__ == "__main__":
