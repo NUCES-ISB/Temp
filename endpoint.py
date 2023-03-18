@@ -51,7 +51,8 @@ data = pd.read_csv("data.csv")
 def chart():
     chart_data = data[['Date', 'High', 'Low']].values.tolist()
     
-    y_pred = model.predict([['Open','High', 'Low', 'Volume']])
+    
+    y_pred = model.predict(X_test_poly)
     
     accuracy = accuracy_score(data['Close'], y_pred)
     precision = precision_score(data['Close'], y_pred)
