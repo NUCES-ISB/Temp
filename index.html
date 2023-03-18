@@ -100,6 +100,38 @@
             }]
         });
     </script>
+	
+<script>
+    var data = {{ metric_data|safe }};
+    Highcharts.chart('metric-container', {
+        title: {
+            text: 'Model Metrics'
+        },
+        xAxis: {
+            categories: data.map(function (row) {
+                return row[0];
+            })
+        },
+        yAxis: {
+            title: {
+                text: 'Metric Value'
+            }
+        },
+        series: [{
+            name: 'Accuracy',
+            data: data.map(function (row) {
+                return row[1];
+            })
+        }, {
+            name: 'F1 Score',
+            data: data.map(function (row) {
+                return row[2];
+            })
+        }]
+    });
+</script>	
+	
+	
 </body>
 </html>
 
