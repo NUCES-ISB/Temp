@@ -69,6 +69,15 @@
 		<div id="chart-container"></div>
 
 	</div>
+	
+     <ul>
+        <li>Accuracy: {{ accuracy }}</li>
+        <li>Precision: {{ precision }}</li>
+        <li>Recall: {{ recall }}</li>
+        <li>F1 Score: {{ f1 }}</li>
+    </ul>
+	
+	
 
     <!-- JavaScript code to create the chart -->
     <script>
@@ -101,35 +110,7 @@
         });
     </script>
 	
-<script>
-    var data = {{ metric_data|safe }};
-    Highcharts.chart('metric-container', {
-        title: {
-            text: 'Model Metrics'
-        },
-        xAxis: {
-            categories: data.map(function (row) {
-                return row[0];
-            })
-        },
-        yAxis: {
-            title: {
-                text: 'Metric Value'
-            }
-        },
-        series: [{
-            name: 'Accuracy',
-            data: data.map(function (row) {
-                return row[1];
-            })
-        }, {
-            name: 'F1 Score',
-            data: data.map(function (row) {
-                return row[2];
-            })
-        }]
-    });
-</script>	
+	
 	
 	
 </body>
