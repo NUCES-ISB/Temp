@@ -1,0 +1,68 @@
+<html>
+  <head>
+      <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+            }
+            h1 {
+                text-align: center;
+                color: #007bff;
+            }
+            p {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+            form {
+                margin: 0 auto;
+                max-width: 500px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+            input[type=text] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                font-size: 1.2em;
+            }
+            input[type=submit] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 4px;
+                font-size: 1.2em;
+                cursor: pointer;
+            }
+            input[type=submit]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to the HBL Closing Stock Price Prediction</h1>
+        
+        <form method="POST" action="/predict">
+            <p>Opening Price of Stock</p>
+            <input type="number" name="Open" placeholder="Open">
+            <br><br>
+            <p>Stock Volume</p>
+            <input type="number" name="Volume" placeholder="Volume">
+            <br><br>
+            <p>Max Stock Price</p>
+            <input type="number" name="Max" placeholder="Max">
+            <br><br>
+            <p>Min Stock Price</p>
+            <input type="number" name="Min" placeholder="Min">
+            <br><br>
+          
+          
+            <input type="submit" value="Predict">
+        </form>
+    </body>
+</html>
