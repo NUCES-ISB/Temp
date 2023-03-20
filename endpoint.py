@@ -66,7 +66,7 @@ def chart():
 
 @app.route('/input')
 def input():
-    return render_template('input.html')
+    return render_template('Input.html')
 
 
 if __name__ == "__main__":
