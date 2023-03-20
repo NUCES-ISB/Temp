@@ -65,7 +65,7 @@ def chart():
 
 
 @app.route('/input')
-def input():
+def myinput():
     return render_template('Input.html')
 
 
