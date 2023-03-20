@@ -64,5 +64,10 @@ def chart():
     return render_template('index.html', chart_data=chart_data,r2=r2,mse=mse,mae=mae)
 
 
+@app.route('/input')
+def input():
+    return render_template('input.html'
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000,debug=True)
