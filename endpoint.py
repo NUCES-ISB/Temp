@@ -77,7 +77,7 @@ def predict():
     Volume = float(request.form['Volume'])
     
     d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
-    d = pd.DataFrame(d.items())
+    d = pd.DataFrame(d)
     result = model.predict(d)
     return jsonify({"predicted_Closed_Stock_Value": result[0]})
 
