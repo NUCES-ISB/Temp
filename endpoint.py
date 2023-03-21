@@ -80,11 +80,11 @@ def predict():
         d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
         d = pd.DataFrame(d)
         result = model.predict(poly.fit_transform(d))
-        return render_template('prediction.html', prediction=result[0])
+        return render_template('prediction.html', prediction=result[0],output="")
     except:
         
         
-    return render_template('prediction.html', prediction="Please Enter Input first")
+    return render_template('prediction.html', prediction=0,output="Enter Input features in the previous page")
 
 
 
