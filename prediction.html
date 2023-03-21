@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Prediction</title>
+  </head>
+  <body>
+    <h1>Stock Prediction</h1>
+    <form action="/predict" method="POST">
+      <label for="Open">Open:</label>
+      <input type="text" id="Open" name="Open"><br><br>
+      <label for="Max">Max:</label>
+      <input type="text" id="Max" name="Max"><br><br>
+      <label for="Min">Min:</label>
+      <input type="text" id="Min" name="Min"><br><br>
+      <label for="Volume">Volume:</label>
+      <input type="text" id="Volume" name="Volume"><br><br>
+      <input type="submit" value="Predict">
+    </form>
+    <br><br>
+    {% if prediction %}
+    <p>Predicted Closed Stock Value: {{ prediction }}</p>
+    {% endif %}
+  </body>
+</html>
