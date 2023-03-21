@@ -84,7 +84,7 @@ def predict():
     except:
         
         
-    return render_template('prediction.html', prediction=0,output="Enter Input features in the previous page")
+        return render_template('prediction.html', prediction=0,output="Enter Input features in the previous page")
 
 
 
