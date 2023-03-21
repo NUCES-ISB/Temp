@@ -78,7 +78,7 @@ def predict():
     
     d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
     d = pd.DataFrame(d)
-    result = model.predict(d)
+    result = model.predict(poly.fit_transform(d))
     return jsonify({"predicted_Closed_Stock_Value": result[0]})
 
 
