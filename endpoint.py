@@ -71,15 +71,20 @@ def myinput():
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    Open = float(request.form['Open'])
-    Max = float(request.form['Max'])
-    Min = float(request.form['Min'])
-    Volume = float(request.form['Volume'])
-    
-    d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
-    d = pd.DataFrame(d)
-    result = model.predict(poly.fit_transform(d))
-    return render_template('prediction.html', prediction=result[0])
+    try:
+        Open = float(request.form['Open'])
+        Max = float(request.form['Max'])
+        Min = float(request.form['Min'])
+        Volume = float(request.form['Volume'])
+
+        d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
+        d = pd.DataFrame(d)
+        result = model.predict(poly.fit_transform(d))
+        return render_template('prediction.html', prediction=result[0])
+    except:
+        
+        
+    return render_template('prediction.html', prediction="Please Enter Input first")
 
 
 
