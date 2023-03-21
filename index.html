@@ -1,105 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-lf7I9MK00Rpz2bRyDnnnAkJw1zxMF5IZ5Wh5i5nHH/0V7ujDzHqB3ovYvsk0ceJlNimk/hx1/NQ8RvZMSrTQcQ==" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-lf7I9MK00Rpz2bRyDnnnAkJw1zxMF5IZ5Wh5i5nHH/0V7ujDzHqB3ovYvsk0ceJlNimk/hx1/NQ8RvZMSrTQcQ==" crossorigin="anonymous" />
 
-	<!-- Bootstrap JS and dependencies -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-**************" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha512-******************************" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-*******************************************" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-**************" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha512-******************************" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-*******************************************" crossorigin="anonymous"></script>
 
-	
-	<!-- Load Highcharts library -->
-	<Title> HBL Stock Exchange</Title>
-	
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<style>
-		/* Make the table larger */
-	    .table-responsive {
-		width: 80%;
-		margin: 0 auto;
-	    }
+    <!-- Load Highcharts library -->
+    <Title> HBL Stock Exchange</Title>
 
-	    /* Center the table horizontally */
-	    .text-center {
-		text-align: center !important;
-	    }
-			
-		
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <style>
+        /* Make the table larger */
+        .table-responsive {
+            width: 80%;
+            margin: 0 auto;
+        }
 
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 30px;
-			background-color: #f8f8f8;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			font-size: 24px;
-		}
-		h1 {
-			font-size: 36px;
-			font-weight: bold;
-			margin-bottom: 20px;
-		}
-		form {
-			margin-top: 30px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		form label {
-			font-size: 24px;
-			margin-right: 20px;
-		}
+        /* Center the table horizontally */
+        .text-center {
+            text-align: center !important;
+        }
 
-		input[type="number"] {
-			width: 80px;
-			margin-right: 10px;
-			border-radius: 5px;
-			border: none;
-			background-color: #f2f2f2;
-			padding: 10px;
-			font-size: 18px;
-		}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 24px;
+        }
 
-		input[type="submit"] {
-			background-color: #4CAF50;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			font-size: 18px;
-			cursor: pointer;
-		}
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-		input[type="submit"]:hover {
-			background-color: #3e8e41;
-		}
+        form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        form label {
+            font-size: 24px;
+            margin-right: 20px;
+        }
 
-	</style>
+        input[type="number"] {
+            width: 80px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #f2f2f2;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>HBL Stock Exchange Dashboard</h1>
+        <div id="chart-container"></div>
+    </div>
 
-
-	<div class="container">
-		<h1>HBL Stock Exchange DashBoard</h1>
-		<div id="chart-container"></div>
-
-	</div>
-	
-
-<div class="table-responsive text-center">
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Metric</th>
-                <th>Value</th>
-            </tr>
-        </thead>
+    <div class="table-responsive text-center">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
         <tbody>
             <tr>
                 <td>R-squared</td>
@@ -117,47 +110,11 @@
     </table>
 </div>
 
-	<p>Click Next to navigate to next page</p>
-        <form method="GET" action="/input">
-            <br><br>
-            <input type="submit" value="Next">
-        </form>
-	
-
-    <!-- JavaScript code to create the chart -->
-    <script>
-        var data = {{ chart_data|safe }};
-        Highcharts.chart('chart-container', {
-            title: {
-                text: 'High Low Chart'
-            },
-            xAxis: {
-                categories: data.map(function (row) {
-                    return row[0];
-                })
-            },
-            yAxis: {
-                title: {
-                    text: 'Values'
-                }
-            },
-            series: [{
-                name: 'High',
-                data: data.map(function (row) {
-                    return row[1];
-                })
-            }, {
-                name: 'Low',
-                data: data.map(function (row) {
-                    return row[2];
-                })
-            }]
-        });
-    </script>
-	
-	
-	
-	
-</body>
-</html>
+<div class="container">
+    <form id="form" method="GET" action="/input">
+	    
+        <label>Click Next to enter data for prediction</label>
+        <input type="submit" value="Next">
+    </form>
+</div>
 
