@@ -117,4 +117,42 @@
         <input type="submit" value="Next">
     </form>
 </div>
+	
+	
+    <!-- JavaScript code to create the chart -->
+    <script>
+        var data = {{ chart_data|safe }};
+        Highcharts.chart('chart-container', {
+            title: {
+                text: 'High Low Chart'
+            },
+            xAxis: {
+                categories: data.map(function (row) {
+                    return row[0];
+                })
+            },
+            yAxis: {
+                title: {
+                    text: 'Values'
+                }
+            },
+            series: [{
+                name: 'High',
+                data: data.map(function (row) {
+                    return row[1];
+                })
+            }, {
+                name: 'Low',
+                data: data.map(function (row) {
+                    return row[2];
+                })
+            }]
+        });
+    </script>
+	
+	
+</body>
+</html>
+		
+	
 
