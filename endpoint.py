@@ -80,7 +80,7 @@ def predict():
 #     d = {'Open':Open,'High':Max,'Low':Min,'Volume':Volume}
 #     d = pd.DataFrame(d.items())
 #     result = model.predict(d)
-    return jsonify({"predicted_Closed_Stock_Value": 0)
+    return jsonify({"predicted_Closed_Stock_Value": 0})
 
 
 
