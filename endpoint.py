@@ -71,16 +71,15 @@ def myinput():
 
 @app.route("/predict", methods=['POST'])
 def predict():
-    print(request.form['Open'])
-#     Open = float(request.form['Open'])
-#     Max = float(request.form['Max'])
-#     Min = float(request.form['Min'])
-#     Volume = float(request.form['Volume'])
+    Open = float(request.form['Open'])
+    Max = float(request.form['Max'])
+    Min = float(request.form['Min'])
+    Volume = float(request.form['Volume'])
     
-#     d = {'Open':Open,'High':Max,'Low':Min,'Volume':Volume}
-#     d = pd.DataFrame(d.items())
-#     result = model.predict(d)
-    return jsonify({"predicted_Closed_Stock_Value": 0})
+    d = {'Open':Open,'High':Max,'Low':Min,'Volume':Volume}
+    d = pd.DataFrame(d.items())
+    result = model.predict(d)
+    return jsonify({"predicted_Closed_Stock_Value": result[0]})
 
 
 
