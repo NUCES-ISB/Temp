@@ -69,5 +69,14 @@ def myinput():
     return render_template('Input.html')
 
 
+@app.route("/predict", methods=['POST'])
+def predict():
+    opening = float(request.form['open'])
+    experience = float(request.form['experience'])
+    predicted_salary = model.predict([[experience]])
+    return jsonify({"predicted_salary": predicted_salary[0]})
+
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000,debug=True)
