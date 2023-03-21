@@ -71,6 +71,7 @@ def myinput():
 
 @app.route("/predict", methods=['POST'])
 def predict():
+    print(request.form['Open'])
     Open = float(request.form['Open'])
     Max = float(request.form['Max'])
     Min = float(request.form['Min'])
