@@ -5,6 +5,11 @@ on:
     branches:
       - main
       - b1
+      - b2 
+  pull_request:
+    branches:
+      - main
+      - b1
       - b2
   workflow_dispatch:
 
