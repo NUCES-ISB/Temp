@@ -48,3 +48,45 @@ model = joblib.load('model.pkl')
 
 data = pd.read_csv("data.csv")
 
+@app.route('/')
+def chart():
+    chart_data = data[['Date', 'High', 'Low']].values.tolist()
+    
+    
+    y_pred = model.predict(X_test_poly)
+    
+    r2 = r2_score(y_test, y_pred)
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+    
+    
+        
+    return render_template('index.html', chart_data=chart_data,r2=r2,mse=mse,mae=mae)
+
+
+@app.route('/input')
+def myinput():
+    return render_template('Input.html')
+
+
+@app.route("/predict", methods=['POST'])
+def predict():
+    try:
+        Open = float(request.form['Open'])
+        Max = float(request.form['Max'])
+        Min = float(request.form['Min'])
+        Volume = float(request.form['Volume'])
+
+        d = {'Open': [Open],'High': [Max],'Low': [Min],'Volume': [Volume]}
+        d = pd.DataFrame(d)
+        result = model.predict(poly.fit_transform(d))
+        return render_template('prediction.html', prediction=result[0],output="")
+    except:
+        
+        
+        return render_template('prediction.html', prediction=0,output="Enter Input features in the previous page")
+
+
+
+if _name_ == "_main_":
+    app.run(host="0.0.0.0", port=8000,debug=True)
