@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - b1
+      - b2
   workflow_dispatch:
 
 jobs:
@@ -23,7 +25,3 @@ jobs:
         pip install -r requirements.txt
     - name: Run isort
       run: isort *.py
-    - name: Push changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: 'Apply isort formatting'
