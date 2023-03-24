@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 import numpy as np
 import joblib
 
-app = Flask(_name_,template_folder='/app')
+app = Flask(__name__,template_folder='/app')
 
 data = pd.read_csv('data.csv')
 
@@ -88,5 +88,5 @@ def predict():
 
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000,debug=True)
